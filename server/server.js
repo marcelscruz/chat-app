@@ -25,9 +25,9 @@ io.on('connection', socket => {
   )
 
   socket.on('createMessage', (message, callback) => {
-    console.log('createMessage', message)
+    // console.log('createMessage', message)
     io.emit('newMessage', generateMessage(message.from, message.text))
-    callback('This is from the server')
+    callback() // Creates the 3rd argument (acknowledgement) in emit('createMessage')
   })
 
   socket.on('createLocationMessage', coords => {
